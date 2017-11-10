@@ -14,7 +14,13 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
            fallback:'style-loader',
-           use:'css-loader',
+           use:{
+			       loader: 'css-loader',
+			       options: {
+				        modules: true,
+				        localIdentName: '[name]__[local]___[hash:base64:5]'
+			       }
+		       },
            publicPath: "/dist"
         })
       },
@@ -22,6 +28,17 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true // true outputs JSX tags
+            }
+          }
+        ]
       }
     ]
   },
@@ -36,7 +53,7 @@ module.exports = {
       //   collapseWhitespace: true
       // },
       hash: true,
-      template: './src/index.ejs'
+      template: './src/index.html'
     }),
     new ExtractTextPlugin({
       filename: "global.bundle.css",

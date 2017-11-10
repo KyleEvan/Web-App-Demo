@@ -1,0 +1,5 @@
+<ul className={navStyles.container}>
+  <li><Link to="/">Home</Link></li>
+  <li><Link to="/sleep">Sleep</Link></li>
+  <li><Link to="/sleep-log">Sleep Log</Link></li>
+</ul>
