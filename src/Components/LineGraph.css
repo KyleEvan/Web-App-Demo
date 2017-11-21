@@ -1,0 +1,12 @@
+.container{
+  height:300px;
+}
+.canvas{
+  height:100%;
+  transition:all .1s linear;
+}
+@media (max-width:45em){
+  .container{
+    height:200px !important;
+  }
+}

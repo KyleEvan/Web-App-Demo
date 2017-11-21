@@ -1,0 +1,31 @@
+.graph{
+  background: #e9edf2;
+  background: linear-gradient(to bottom, #e9edf2 1%,#ffffff 80%);
+}
+.graph > div:last-child, .graph > div:nth-last-child(2){
+  font-weight:600;
+  text-align: center;
+  font-size:.85rem;
+  padding:1rem;
+}
+.sleepStart{
+  display:inline-block;
+}
+.sleepEnd{
+  float:right;
+}
+.stats{
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+.stats > li{
+  padding:.5rem 0;
+  border-bottom: 1px solid #dee2e8;
+}
+.stats > li > span:nth-child(1){
+  display:inline-block;
+}
+.stats > li > span:nth-child(2){
+  float:right;
+}

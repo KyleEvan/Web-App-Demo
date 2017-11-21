@@ -1,35 +1,52 @@
-import css from './global.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './Components/Header';
+import Body from './Body/Body';
+import css from './global.css';
 
-import Home from './Views/Home';
-import Sleep from './Views/Sleep';
-import SleepLog from './Views/SleepLog';
+import ScrollToTop from './Components/ScrollToTop';
 
 class App extends React.Component {
+  constructor(props){
+     super(props);
+     this.state = {
+       asideExpanded: false
+     }
+     this.handleToggleAside = this.handleToggleAside.bind(this);
+  }
+  componentDidMount(){
+    this.fetchData();
+  }
+  fetchData(){
+    // Fetch Data and set setState
+    // Data will be passed down to <Body />
+    // from <Body /> data is passed down to each View Component
+
+  }
+  handleToggleAside(){
+     this.setState({
+       asideExpanded: !this.state.asideExpanded
+     })
+  }
   render(){
     return (
 
-
       <Router>
-        <div>
-          <Header/>
-          <div>
-            <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route path="/sleep" component={Sleep}/>
-              <Route path="/sleep-log" component={SleepLog}/>
-              <Route path="*" component={Home}/>
-            </Switch>
+
+          <div className={css.router}>
+            <ScrollToTop />
+            <Header onClick={this.handleToggleAside}/>
+            <Body data="data" expanded={this.state.asideExpanded} toggleAside={this.handleToggleAside}/>
+
           </div>
-        </div>
+
       </Router>
 
     );
   }
 }
+
 
 ReactDOM.render(
   <App />,

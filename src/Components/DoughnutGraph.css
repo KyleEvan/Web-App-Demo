@@ -1,0 +1,12 @@
+.container{
+  width:100%;
+}
+.canvas{
+  max-width:600px;
+  margin:0 auto;
+}
+@media (max-width:30em){
+  .canvas{
+    height:200px;
+  }
+}

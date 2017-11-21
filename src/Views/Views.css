@@ -1,0 +1,11 @@
+.box{
+  padding:1.5rem;
+  background:#fff;
+  color:#4E5E6A;
+  box-shadow: 0 5px 5px -5px rgba(0,0,0,.1);
+}
+.box h3{
+  font-size:1rem;
+  padding-bottom:1.5rem;
+  margin:0;
+}

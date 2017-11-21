@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require("path");
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: './src/app.js',
@@ -14,13 +15,23 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
            fallback:'style-loader',
-           use:{
+           use:[
+             {
 			       loader: 'css-loader',
 			       options: {
-				        modules: true,
-				        localIdentName: '[name]__[local]___[hash:base64:5]'
-			       }
-		       },
+				           modules: true,
+				           localIdentName: '[name]__[local]___[hash:base64:5]'
+			          }
+             },
+             {
+               loader:'postcss-loader',
+               options: {
+                 plugins: function () {
+                     return [autoprefixer]
+                 }
+               }
+             }
+           ],
            publicPath: "/dist"
         })
       },
@@ -32,6 +43,9 @@ module.exports = {
       {
         test: /\.svg$/,
         use: [
+          {
+            loader:"babel-loader"
+          },
           {
             loader: "react-svg-loader",
             options: {
@@ -48,7 +62,6 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack Starter',
       // minify: {
       //   collapseWhitespace: true
       // },

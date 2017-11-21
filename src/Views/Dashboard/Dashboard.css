@@ -1,0 +1,40 @@
+.pageTitle{
+  padding:1.5rem;
+  background: #e9edf2;
+  border-bottom: 1px solid #dee2e8;
+  color:#4E5E6A;
+}
+.pageTitle h1{
+  margin:0;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.container{
+  padding:.75rem;
+}
+.container > div{
+  padding:.75rem;
+  display: inline-block;
+  vertical-align: top;
+}
+.container > div:nth-child(1){
+  width:100%;
+}
+.container > div:nth-child(2),
+.container > div:nth-child(3){
+  width:50%;
+}
+@media (max-width: 28em){
+  .container{
+    padding:0;
+  }
+  .container > div{
+    padding:0;
+    margin-bottom:1rem;
+  }
+}
+@media (max-width:47em){
+  .container > div{
+    width:100% !important;
+  }
+}

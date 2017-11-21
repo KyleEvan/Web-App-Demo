@@ -1,0 +1,18 @@
+.container{
+  position:relative;
+  height: inherit;
+  width:calc(100% + 15rem);
+  transition: .3s ease-in-out;
+  transform: translateX(-15rem);
+}
+.open{
+  transform: translateX(0rem);
+}
+.main{
+  position: absolute;
+  left:0;
+  top: 0;
+  width:100%;
+  height:inherit;
+  padding-left: 15rem;
+}
